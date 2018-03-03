@@ -10,7 +10,7 @@ exports.webhook = function(request, response) {
   Subscriber.findOne({
     phone: phone,
   }, function(err, sub) {
-    if (err) return respond('Derp! Please text back again later.');
+    if (err) return respond('Error! Please Text Wif-Eye Back Later');
 
     if (!sub) {
       // If there's no subscriber associated with this phone number,
@@ -21,7 +21,7 @@ exports.webhook = function(request, response) {
 
       newSubscriber.save(function(err, newSub) {
         if (err || !newSub)
-          return respond('We couldn\'t sign you up - try again.');
+          return respond('Wif-Eye couldn\'t sign you up... Please try again later .');
 
         // We're signed up but not subscribed - prompt to subscribe
         respond('Thanks for contacting us! Text "subscribe" to ' +
